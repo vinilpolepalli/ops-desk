@@ -1,0 +1,20 @@
+The Ops Desk demo is built in `/home/sandbox/proj/async-ops-desk`, and `npm run build` passes with a static export to `out/`. I haven't opened it in a browser or checked it at 390px, so the layout is untested. There's no git commit and no deploy.
+
+I wrote `SPEC.md` first and then built the slices in order.
+
+- **Data:** 10 synthetic items covering the supplier delay, shift swap, invoice, low stock, refund, lease, POS mismatch and a few more. Each has a type tag, a synthetic source and a labeled agent draft. The data is in `lib/data.ts`.
+- **State machine:** the reducer is in `lib/state.ts`. A `DRAFTED` item can be sent for approval, and a `NEEDS APPROVAL` item can be approved or rejected. Rejecting sends it back to `DRAFTED`. An `APPROVED` item can be marked sent, and the app labels this as simulated.
+- **Demo clock:** it starts at 14:30 and moves forward 2 minutes per action. It isn't real time.
+- **Activity log:** every transition adds a line like "OPS-101 approved at demo clock 14:32", newest first. There is also a "Reset demo" button.
+- **Filters and list:** status chips show live counts, and the item list sits beside the detail pane. Every draft carries the label "agent draft - synthetic, requires human approval".
+- **Stats strip:** it shows handled today, awaiting approval, average agent response time and the demo clock. These update as you act, and the strip is labeled as sample stats.
+- **Honesty copy:** the "Sample data - demo" badge, the synthetic and local-only notice, and the "Not affiliated with or endorsed by Async" footer are all in place.
+- **Look:** dark theme with teal `#14b8a6` as the accent. There are no external calls or fonts.
+
+**Mobile layout:** below 820px the layout stacks, and the detail pane appears above the list. Picking an item from the list means scrolling back up to see its detail.
+
+**Extra buttons:** "Request approval" and "Simulate send" aren't in the brief. I added them so every status is reachable and `DRAFTED` and `APPROVED` items have an action.
+
+**Average response time:** it is fixed from the synthetic data, not derived from your clicks.
+
+The main UI is in `components/Desk.tsx`, with styles in `app/globals.css`.

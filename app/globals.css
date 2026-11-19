@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #fcfcfa; color: #1c1917; }
+body { font-feature-settings: 'tnum'; -webkit-font-smoothing: antialiased; }
+.label { font-variant-caps: all-small-caps; letter-spacing: 0.06em; font-size: 0.8125rem; color: #6b665f; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid #a16207; outline-offset: 2px; }

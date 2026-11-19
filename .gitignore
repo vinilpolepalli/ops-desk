@@ -1,1 +1,8 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+opsdesk.db*
 .vercel
+.env*

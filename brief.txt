@@ -1,0 +1,11 @@
+Project: "Ops Desk" - independent demo inspired by the problem space of Async (YC S26), ops agents for small businesses. NOT affiliated; footer says so.
+
+Concept: an ops inbox for a fictional small business ("Demo Pet Supply Co", a fictional 2-location pet supply shop):
+- ~10 synthetic ops items in an inbox: supplier email about a delayed shipment, staff schedule change request, invoice due reminder, low-stock alert, customer refund request, lease renewal notice, POS reconciliation mismatch, etc.
+- Each item shows: type tag, source (synthetic email/alert/system), status (DRAFTED, NEEDS APPROVAL, APPROVED, SENT - synthetic state machine), and the agent's proposed action as a visible draft (e.g. reply draft to the supplier, adjusted schedule, payment reminder note). Every draft is labeled "agent draft - synthetic, requires human approval".
+- Approve/Reject buttons on NEEDS APPROVAL items move them through the state machine locally and append to a visible activity log ("approved at demo clock 14:32" etc.) - making the human-in-the-loop explicit.
+- Filter chips by status with counts; small stats strip (items handled today, awaiting approval, avg response time - computed from synthetic data, labeled sample stats).
+- An activity log panel at the bottom showing every action with demo-clock timestamps.
+Honesty bar: header badge "Sample data - demo"; copy states every email/item/draft is synthetic and the state machine is a local illustration, no real messages are sent or received; footer: "Independent demo built by Vinil Polepalli. Not affiliated with or endorsed by Async."
+UI: dark sleek, distinct accent TEAL (#14b8a6 - not emerald/green, not sky/cyan; clearly teal).
+Tech: Next.js static export (output:'export'), npm run build must pass, no runtime external calls. Write SPEC.md first, then slices. No git commit, no deploy.
